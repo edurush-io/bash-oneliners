@@ -3,7 +3,7 @@ Useful bash one-liners
 
 TCP memory used by the system
 ```bash
-numpages=$(grep TCP /proc/net/sockstat | awk '{print $NF}'); pagesize=$(getconf PAGESIZE); echo "TCP memory used: "$((numpages * pagesize))"B"
+numpages=$(grep TCP /proc/net/sockstat | awk '{print $NF}'); pagesize=$(getconf PAGESIZE); echo "TCP memory used: "$((numpages * pagesize))" Bytes"
 ```
 
 Top file descriptor consumer processes
