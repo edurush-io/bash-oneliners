@@ -10,4 +10,10 @@ Top file descriptor consumer processes
 ```bash
 lsof -n | awk '{ print $2 " " $1; }' | sort -rn | uniq -c | sort -rn | head -20
 ```
-or use faster alternative with more useful info: [lsod.py](https://github.com/edurush-io/systools/blob/main/lsod.py)
+or use faster alternative with more useful info: [fdstats.py](https://github.com/edurush-io/systools/blob/main/fdstats.py)
+
+Watching memory faults (minor, major...) for a process realtime
+```bash
+watch -n1 -d "echo 'minflt cminflt majflt cmajflt'; cat /proc/`pgrep -f YOUR_PROCESS`/stat | awk '{print \$10,\$11,\$12,\$13}'"
+```
+
